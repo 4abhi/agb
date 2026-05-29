@@ -120,8 +120,11 @@
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; height: 8px; border-radius: 4px; outline: none; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: #10B981; cursor: pointer; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); transition: transform 0.1s; }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-        .ba-slider-container { cursor: ew-resize; }
-        .ba-slider-handle { pointer-events: none; }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; opacity: 0; }
+        .faq-content.open { max-height: 300px; opacity: 1; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
@@ -278,87 +281,105 @@
         </div>
     </section>
 
-    <!-- The Comparison (Us vs Them) -->
-    <section class="py-32 px-6 bg-white dark:bg-[#0A0A0A] border-b border-slate-200 dark:border-white/5 relative z-10 transition-colors duration-500">
-        <div class="max-w-[1200px] mx-auto">
+    <!-- 2. The Comparison (Shared vs Pipelines) - Custom High Converting Points Layout -->
+    <section class="py-32 px-6 bg-slate-100 dark:bg-[#08080c] relative z-10 transition-colors duration-500">
+        <div class="max-w-[1400px] mx-auto">
             <div class="text-center mb-20 scroll-section">
-                <h2 class="text-brand-green text-xs tracking-[0.2em] font-bold mb-4 uppercase">Stop Renting</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold leading-tight text-brand-navy dark:text-white transition-colors">
-                    Shared Platforms vs. Pipelines.
+                <h2 class="text-brand-green text-xs tracking-[0.2em] font-bold mb-4 uppercase">Lead Flow Comparison</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold leading-tight text-brand-navy dark:text-white tracking-tight transition-colors">
+                    Shared Platforms vs. Your Proprietary Pipeline
                 </h3>
+                <p class="text-slate-500 dark:text-slate-400 mt-4 font-medium max-w-2xl mx-auto">
+                    The difference between paying to build someone else's brand, and owning your market completely.
+                </p>
             </div>
 
-            <!-- Custom Before/After Slider matching Remodeling theme -->
-            <div class="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-float border border-slate-200 dark:border-white/10 ba-slider-container group scroll-section" id="ba-container">
+            <div class="grid md:grid-cols-2 gap-8 items-stretch scroll-section">
                 
-                <!-- BEFORE (Shared Leads) -->
-                <div class="absolute inset-0 bg-slate-100 dark:bg-slate-900 transition-colors w-full h-full flex flex-col justify-center px-10 md:px-20">
-                    <div class="absolute top-10 left-10 text-slate-500 font-bold tracking-widest uppercase text-sm md:text-lg">Shared Lead Platforms</div>
-                    
-                    <div class="w-full max-w-md space-y-4 relative z-10">
-                        <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-red-200 dark:border-red-900/30 flex items-center gap-4 shadow-sm opacity-60 blur-[1px]">
-                            <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">!</div>
-                            <div>
-                                <div class="font-bold text-slate-800 dark:text-white text-sm">Lead Sold to Competitor A</div>
-                                <div class="text-xs text-red-500 mt-1">2 seconds ago</div>
+                <!-- Shared Lead Platforms Card -->
+                <div class="bg-white dark:bg-brand-navy rounded-[2.5rem] border border-slate-200 dark:border-white/5 p-8 md:p-12 shadow-sm flex flex-col justify-between transition-all">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                             </div>
+                            <h4 class="text-2xl font-extrabold text-slate-800 dark:text-white">Shared Lead Directories</h4>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-red-400 dark:border-red-500 flex items-center gap-4 shadow-md scale-105 z-10">
-                            <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                            <div>
-                                <div class="font-bold text-slate-800 dark:text-white text-sm">Lead Sold to YOU</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cost: $120 (Non-Refundable)</div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 pb-6 border-b border-slate-100 dark:border-white/5">
+                                <span class="text-red-500 font-extrabold text-lg leading-none shrink-0">✗</span>
+                                <div>
+                                    <h5 class="font-extrabold text-slate-800 dark:text-white text-base">Leads Sold to 5+ Competitors</h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Every project inquiry is immediately broadcast to multiple builders. The homeowner gets blasted with calls and typically defaults to the lowest bidder.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute bottom-10 left-10 text-red-600 dark:text-red-400 font-bold bg-red-100 dark:bg-red-900/30 px-6 py-2 rounded-full whitespace-nowrap text-sm">Bidding Wars & Free Design Pitches</div>
-                </div>
 
-                <!-- AFTER (AGB Exclusive Pipeline) -->
-                <div class="absolute inset-0 z-10 transition-colors w-full h-full" id="ba-after" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                    <!-- High Res Remodeling Background -->
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
-                    <div class="absolute inset-0 bg-brand-navy/80 mix-blend-multiply"></div>
-                    
-                    <div class="absolute top-10 right-10 text-brand-green font-bold tracking-widest uppercase text-sm md:text-lg shadow-glow-green px-6 py-2 bg-brand-green/10 rounded-full border border-brand-green/30 whitespace-nowrap">AGB Exclusive Pipeline</div>
-                    
-                    <div class="absolute top-1/2 right-10 md:right-20 -translate-y-1/2 w-full max-w-md">
-                        <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-[0_0_40px_rgba(16,185,129,0.35)]">
-                            <div class="flex justify-between items-start mb-6 border-b border-white/10 pb-6">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-14 h-14 rounded-full bg-brand-green text-white flex items-center justify-center shadow-glow-green"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
-                                    <div>
-                                        <div class="text-white font-black text-xl tracking-tight">100% Exclusive Lead</div>
-                                        <div class="text-brand-green font-bold text-sm mt-1">Direct Inbound Pipeline</div>
-                                    </div>
+                            <div class="flex items-start gap-4 pb-6 border-b border-slate-100 dark:border-white/5">
+                                <span class="text-red-500 font-extrabold text-lg leading-none shrink-0">✗</span>
+                                <div>
+                                    <h5 class="font-extrabold text-slate-800 dark:text-white text-base">The "Free Proposal" Drain</h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">You waste 15+ hours designing custom 3D drafts and pricing lists for unvetted leads who have no intent or budget to build.</p>
                                 </div>
                             </div>
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-sm text-slate-300">
-                                    <span>Project Type:</span>
-                                    <span class="text-white font-bold">Custom Kitchen & Living Area Remodel</span>
-                                </div>
-                                <div class="flex justify-between text-sm text-slate-300">
-                                    <span>Competitors Notified:</span>
-                                    <span class="text-green-400 font-bold">ZERO</span>
+
+                            <div class="flex items-start gap-4">
+                                <span class="text-red-500 font-extrabold text-lg leading-none shrink-0">✗</span>
+                                <div>
+                                    <h5 class="font-extrabold text-slate-800 dark:text-white text-base">Subsidizing Your Competition</h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Your marketing spend goes directly to ranking directory platforms higher on Google, pushing your proprietary brand further down the page.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="absolute bottom-10 right-10 text-white font-bold bg-brand-green px-6 py-2 rounded-full shadow-glow-green flex items-center gap-2 whitespace-nowrap text-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg> High-Ticket Homeowners Only</div>
-                </div>
-
-                <!-- Slider Handle -->
-                <div class="absolute inset-y-0 z-20 flex items-center justify-center pointer-events-none ba-slider-handle" id="ba-handle" style="left: 50%; transform: translateX(-50%);">
-                    <div class="w-1 h-full bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)]"></div>
-                    <div class="absolute w-12 h-12 bg-white rounded-full shadow-xl border-4 border-brand-navy flex items-center justify-center text-brand-navy cursor-ew-resize pointer-events-auto transition-transform group-hover:scale-110">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
+                    <div class="mt-8 pt-6 border-t border-slate-100 dark:border-white/5 text-center text-xs font-bold text-red-500 uppercase tracking-wider">
+                        Race-to-the-Bottom Price Wars
                     </div>
                 </div>
-                
-                <input type="range" min="0" max="100" value="50" class="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30 m-0" id="ba-range" oninput="updateBA(this.value)">
+
+                <!-- AGB Pipeline Card -->
+                <div class="bg-brand-navy dark:bg-[#050505] rounded-[2.5rem] border border-brand-green/30 dark:border-white/10 p-8 md:p-12 shadow-float flex flex-col justify-between relative overflow-hidden transition-all text-white">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent pointer-events-none"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 rounded-xl bg-brand-green text-white flex items-center justify-center shadow-glow-green">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h4 class="text-2xl font-extrabold text-white">AGB Custom Pipeline</h4>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 pb-6 border-b border-white/10">
+                                <span class="text-brand-green font-extrabold text-lg leading-none shrink-0">✓</span>
+                                <div>
+                                    <h5 class="font-extrabold text-white text-base">100% Territory Exclusivity</h5>
+                                    <p class="text-slate-300 text-sm mt-1">If a homeowner contacts your business, that lead is owned entirely by you. No price-shopping matches, and no competing bids sent through your system.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 pb-6 border-b border-white/10">
+                                <span class="text-brand-green font-extrabold text-lg leading-none shrink-0">✓</span>
+                                <div>
+                                    <h5 class="font-extrabold text-white text-base">Pre-Screened Project Budgets</h5>
+                                    <p class="text-slate-300 text-sm mt-1">Our funnel filters prospects based on project size and budget tier. Low-end repair seekers are filtered out, so you only quote $45k+ remodel contracts.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <span class="text-brand-green font-extrabold text-lg leading-none shrink-0">✓</span>
+                                <div>
+                                    <h5 class="font-extrabold text-white text-base">Brand Equity Accumulation</h5>
+                                    <p class="text-slate-300 text-sm mt-1">We scale your personal brand, Google maps presence, and organic keyword authority. You build a long-term business asset that gets more valuable over time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-center text-xs font-bold text-brand-green uppercase tracking-wider relative z-10">
+                        Premium Positioning & Client Capture
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -823,16 +844,6 @@
                 card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
             };
         });
-
-        // Before/After Slider Logic
-        window.updateBA = function(val) {
-            const afterEl = document.getElementById('ba-after');
-            const handleEl = document.getElementById('ba-handle');
-            if (afterEl && handleEl) {
-                afterEl.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
-                handleEl.style.left = `${val}%`;
-            }
-        };
 
         // --- FAQ Accordion Logic ---
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
